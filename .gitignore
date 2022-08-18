@@ -1,0 +1,5 @@
+#mac os stuff
+.DS_Store
+
+#nodejs
+node_modules/
