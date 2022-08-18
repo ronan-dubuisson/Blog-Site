@@ -59,7 +59,7 @@ app.get("/compose", (req, res) => {
 app.post("/compose", (req, res) => {
   const title = req.body.postTitle;
   const content = req.body.postMessage;
-  const truncated = req.body.postMessage.substring(0,shortPostContentLength);
+  const truncated = req.body.postMessage.substring(0,shortPostContentLength).trim() + "...";
   const path = "/posts/" + _.kebabCase(req.body.postTitle);
 
   const post = {
