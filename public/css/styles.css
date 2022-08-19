@@ -23,6 +23,10 @@ textarea{
     resize:none;
 }
 
+a {
+    margin-left: 10px;
+}
+
 .footer {
 	position: absolute;
 	text-align: center;
