@@ -39,5 +39,16 @@ async function addPost(post) {
   await closeConnection();
 }
 
+async function getPosts() {
+  await openConnection(this.connectionString);
+
+  const posts = await Post.find().exec();
+
+  await closeConnection();
+
+  return posts;
+}
+
 module.exports = Db;
 Db.prototype.addPost = addPost;
+Db.prototype.getPosts = getPosts;

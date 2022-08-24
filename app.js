@@ -8,7 +8,6 @@ const Database = require(`${__dirname}/db.js`);
 const dbConnectionString = 'mongodb://localhost:27017/blogDb';
 const db = new Database(dbConnectionString);
 
-const posts = [];
 const shortPostContentLength = 100;
 
 const app = express();
@@ -19,20 +18,22 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  res.render('home', {
-    posts,
+  db.getPosts().then((posts) => {
+    res.render('home', {
+      posts,
+    });
   });
 });
 
 app.get('/posts/:post', (req, res) => {
-  posts.forEach((post) => {
+  /* posts.forEach((post) => {
     if (_.lowerCase(post.title) === _.lowerCase(req.params.post)) {
       console.log('Match found!');
       res.render('post', {
         post,
       });
     }
-  });
+  }); */
 });
 
 app.get('/about', (req, res) => {
