@@ -1,15 +1,11 @@
-#mac os stuff
-.DS_Store
-
 #nodejs
-node_modules/
+node_modules
 
-<<<<<<< HEAD
-#testing files
-=======
-#intellij
+#intelij
 .idea
 
-#testing stuff
->>>>>>> post-routing
-queryDocument
+#helper tools
+.eslintrc
+.prettierrc
+
+.DS_Store
